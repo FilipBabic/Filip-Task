@@ -10,7 +10,7 @@
         <array key="Gilroy-SemiBold.ttf">
             <string>Gilroy-SemiBold</string>
         </array>
-        <array key="Inter-VariableFont_slnt,wght.ttf">
+        <array key="Inter-VariableFont.ttf">
             <string>Inter-Regular</string>
             <string>Inter-Regular_Bold</string>
             <string>Inter-Regular_SemiBold</string>
@@ -20,7 +20,7 @@
         <!--Task View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="TaskViewController" customModule="Filip_Task" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="TaskViewController" storyboardIdentifier="TaskViewController" id="BYZ-38-t0r" customClass="TaskViewController" customModule="Filip_Task" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -36,8 +36,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="382" height="170"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="04 Jun 10:00 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QdC-P9-T1F">
-                                                    <rect key="frame" x="36" y="16" width="106.5" height="20"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QdC-P9-T1F">
+                                                    <rect key="frame" x="36" y="16" width="72" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="7i5-ei-MC5"/>
                                                     </constraints>
@@ -45,8 +45,8 @@
                                                     <color key="textColor" red="0.1450980392" green="0.14901960780000001" blue="0.2274509804" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ophelia Simmons" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tod-Uw-Py4">
-                                                    <rect key="frame" x="36" y="44" width="111" height="20"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tod-Uw-Py4">
+                                                    <rect key="frame" x="36" y="44" width="79" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="aFb-kb-WiE"/>
                                                     </constraints>
@@ -54,8 +54,8 @@
                                                     <color key="textColor" red="0.14509803921568626" green="0.14901960784313725" blue="0.22745098039215686" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3288 Beier Mountains Suite 949" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w4F-yd-nwN">
-                                                    <rect key="frame" x="36" y="72" width="200" height="20"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w4F-yd-nwN">
+                                                    <rect key="frame" x="36" y="72" width="94.5" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="RJU-2o-YaP"/>
                                                     </constraints>
@@ -63,8 +63,8 @@
                                                     <color key="textColor" red="0.14509803921568626" green="0.14901960784313725" blue="0.22745098039215686" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Walgreens Pharmacy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rgn-on-d1D">
-                                                    <rect key="frame" x="36" y="100" width="132.5" height="20"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Company Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rgn-on-d1D">
+                                                    <rect key="frame" x="36" y="100" width="103" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="FgP-SM-CZj"/>
                                                     </constraints>
@@ -72,8 +72,8 @@
                                                     <color key="textColor" red="0.14509803921568626" green="0.14901960784313725" blue="0.22745098039215686" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delivery" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FlR-AC-vWr">
-                                                    <rect key="frame" x="36" y="128" width="50" height="26"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TypeLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FlR-AC-vWr">
+                                                    <rect key="frame" x="36" y="128" width="69" height="26"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="Lan-sk-V6U"/>
                                                     </constraints>
@@ -198,7 +198,7 @@
         <!--Task Details View Controller-->
         <scene sceneID="vgm-AH-Igj">
             <objects>
-                <viewController id="qoC-Ub-nzG" customClass="TaskDetailsViewController" customModule="Filip_Task" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TaskDetailsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qoC-Ub-nzG" customClass="TaskDetailsViewController" customModule="Filip_Task" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lY1-NT-Fgq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -426,7 +426,7 @@
                                                     <color key="titleColor" red="0.1450980392" green="0.14901960780000001" blue="0.2274509804" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="FvH-oa-XEz" kind="presentation" identifier="notesSegue" id="DZZ-qr-dsf"/>
+                                                    <segue destination="FvH-oa-XEz" kind="presentation" identifier="notesSegue" id="Lfc-oa-8Bz"/>
                                                 </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AddIcon" translatesAutoresizingMaskIntoConstraints="NO" id="mmZ-KM-g5J">
@@ -586,16 +586,20 @@
                     </view>
                     <navigationItem key="navigationItem" id="tih-Aj-Rot"/>
                     <connections>
+                        <outlet property="SignatureButton" destination="901-jd-6hp" id="Tf2-mx-f1X"/>
                         <outlet property="addressLabel" destination="s3s-TE-hGu" id="i1a-Ml-6wN"/>
                         <outlet property="companyLabel" destination="5jh-vv-OnO" id="TEg-fo-mst"/>
                         <outlet property="contentView" destination="alb-Z4-Pl4" id="Z0e-qq-RIR"/>
                         <outlet property="dataLabel" destination="Z1E-XD-rwt" id="mvI-0S-WDs"/>
                         <outlet property="messageButton" destination="Wdd-Yb-2TQ" id="pFw-km-h5K"/>
                         <outlet property="nameLabel" destination="YCF-LY-URE" id="rcI-Ba-hpr"/>
+                        <outlet property="notesButton" destination="vZ1-hs-XtR" id="Bwa-kh-odU"/>
                         <outlet property="profileIcon" destination="hzI-TQ-hLc" id="QB5-g0-cKq"/>
                         <outlet property="saveButton" destination="AdT-p3-Nyd" id="t4L-3d-k2w"/>
+                        <outlet property="scrollViewHeightConstraint" destination="mgv-YM-Osf" id="Doh-xP-Ei7"/>
                         <outlet property="statusButton" destination="P4Q-Zz-XEz" id="aCG-Ae-BIV"/>
                         <outlet property="typeLabel" destination="efL-D0-Ee3" id="4NF-tE-0Oj"/>
+                        <outlet property="verticalSpacingConstraint" destination="VLX-dQ-8DX" id="kOC-PA-qKJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vih-Jd-MKN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -605,7 +609,7 @@
         <!--Add Note View Controller-->
         <scene sceneID="vDH-Ym-jsY">
             <objects>
-                <viewController id="FvH-oa-XEz" customClass="AddNoteViewController" customModule="Filip_Task" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddNoteViewController" id="FvH-oa-XEz" customClass="AddNoteViewController" customModule="Filip_Task" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9HQ-b1-hIK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -657,7 +661,7 @@
                                 </constraints>
                                 <color key="textColor" red="0.58431372550000005" green="0.62745098040000002" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="16"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="120 symbols" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ivS-7P-7RA">
                                 <rect key="frame" x="56" y="114" width="71" height="15"/>
@@ -700,14 +704,17 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vmU-es-Ubp"/>
                     </view>
+                    <navigationItem key="navigationItem" id="3DY-24-Pa1"/>
                     <connections>
                         <outlet property="DoneButton" destination="wOq-hq-pH1" id="zI1-Ij-wvp"/>
                         <outlet property="closeButton" destination="V3K-JX-qKM" id="wIC-Uo-4xI"/>
                         <outlet property="noteTextField" destination="8rH-Z6-hwE" id="8Sh-jF-Sma"/>
                         <outlet property="statusLabel" destination="ivS-7P-7RA" id="Jph-YU-TcR"/>
+                        <segue destination="6MB-XJ-BeL" kind="unwind" identifier="backToDetails" unwindAction="unwindToTaskDetailsWithSegue:" id="huU-gC-sbu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0ji-1G-4UY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="6MB-XJ-BeL" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2921.739130434783" y="107.8125"/>
         </scene>

@@ -12,23 +12,24 @@ import Firebase
 class AddNoteViewController: UIViewController,UITextFieldDelegate {
     
     var ref : DatabaseReference!
+    
     var objectKey: String?
+    var Task: TaskModel?
     
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var DoneButton: UIButton!
+    @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak var noteTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         setUpUserInterface()
     }
     
     func setUpUserInterface(){
         
         noteTextField.delegate = self
-        
         self.closeButton.layer.cornerRadius = 15.0
-        
         self.DoneButton.clipsToBounds = true
         self.DoneButton.layer.cornerRadius = 18.0
         self.DoneButton.applyGradient(colours: [buttonGradientTop, buttonGradientBottom], locations: [0.0,1.1])
@@ -36,25 +37,21 @@ class AddNoteViewController: UIViewController,UITextFieldDelegate {
         ref = Database.database().reference().child("Tasks/\(objectKey ?? "emptyKey")/notes")
     }
     
-    @IBOutlet weak var statusLabel: UILabel!
-    @IBOutlet weak var noteTextField: UITextField!
-        
     @IBAction func CloseScreen(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
 
     @IBAction func AddNote(_ sender: Any) {
         let alert = UIAlertController(title: "Save Note to Realtime Database", message: nil, preferredStyle: .alert)
+        
         alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { action in
             self.addNote()
-            self.dismiss(animated: true, completion: nil)
-
+            self.performSegue(withIdentifier: "backToDetails", sender: nil)
         }))
         
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            
         self.present(alert, animated: true, completion: nil)
-        
-        
     }
     
     func addNote(){
@@ -65,28 +62,20 @@ class AddNoteViewController: UIViewController,UITextFieldDelegate {
             "noteContent": noteTextField.text! as String
         ]
        
-        ref.child("note_\(String(describing: key!))").setValue(note)
+        ref.child("note\(String(describing: key!))").setValue(note)
+        Task!.notes.append(NoteModel(id: (String(describing: key!)), noteContent: noteTextField.text!))
     }
-    
-    //TEXT FIELD DELEGATE
+
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
 
-        let length = noteTextField.text?.count ?? 0
-        let count = 120 - length
-        statusLabel.text =  String(count) + " symbols"
-
-        return length <= 119
+        let currentCharacterCount = textField.text?.count ?? 0
+        
+        if range.length + range.location > currentCharacterCount {
+            return false
+        }else{
+            let newLength = currentCharacterCount + string.count - range.length
+            statusLabel.text =  String(120 - newLength) + " symbols"
+            return newLength < 120
+        }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
-
-
 }

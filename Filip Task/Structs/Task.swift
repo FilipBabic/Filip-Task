@@ -9,6 +9,7 @@
 import UIKit
 
 struct TaskModel {
+    
     var id: Int
     var date: String
     var name: String

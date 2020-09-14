@@ -27,7 +27,6 @@ class TaskCell: UITableViewCell {
         self.statusButton.clipsToBounds = true
         self.statusButton.layer.cornerRadius = 10.5
         self.statusButton.applyGradient(colours: [secondButtonGradientTop, secondButtonGradientBottom], locations: [0.0,1.1])
-        // Configure the view for the selected state
     }
 
 }

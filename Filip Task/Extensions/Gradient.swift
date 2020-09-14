@@ -10,6 +10,7 @@ import UIKit
 
 extension UIView {
 @discardableResult
+    
 func applyGradient(colours: [UIColor], locations: [NSNumber]?) -> CAGradientLayer {
     let gradient: CAGradientLayer = CAGradientLayer()
     gradient.frame = self.bounds

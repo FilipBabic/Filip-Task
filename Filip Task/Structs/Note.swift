@@ -7,11 +7,13 @@
 //
 
 import UIKit
+
 struct NoteModel {
-    var id: NSNumber
-    var noteContent: NSString
     
-    init(id:NSNumber, noteContent:NSString) {
+    var id: String
+    var noteContent: String
+    
+    init(id:String, noteContent:String) {
         self.id = id
         self.noteContent = noteContent
     }

@@ -26,6 +26,7 @@ extension UIColor {
    }
 }
 
+var TextColor = UIColor(rgb: 0x25263A)
 var backgroundColor = UIColor(rgb: 0xE5E5E5)
 var linkColor = UIColor(rgb: 0x0786FE)
 var confirmButton = UIColor(rgb: 0x6D5BFF)
@@ -36,5 +37,4 @@ var secondButtonGradientTop = UIColor(rgb: 0x8E57FF)
 var secondButtonGradientBottom = UIColor(rgb: 0x6D5BFF)
 var TaskBorderColor = UIColor(rgb: 0xE9ECEF)
 
-var counterNotes = 0
 

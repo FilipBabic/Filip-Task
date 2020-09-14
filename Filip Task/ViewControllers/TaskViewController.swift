@@ -13,26 +13,26 @@ class TaskViewController: UIViewController,UITableViewDataSource,UITableViewDele
     
     var ref : DatabaseReference!
     
+    var Tasks = [TaskModel]()
+    var noteID = [NoteModel]()
+    
     @IBOutlet weak var TableVIew: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         drawNavigation(withColor: navigationBackground, leftImage: UIImage(named: "LeftItem")!, rightImage: UIImage(named: "RightItem")!, title: "June 5", withBorder: true)
-        
-        self.view.backgroundColor = backgroundColor
-        self.TableVIew.backgroundColor = backgroundColor
-        self.TableVIew.separatorStyle = UITableViewCell.SeparatorStyle.none        
+        setUserInterface()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-
         LoadTasks()
-        
     }
     
-    var Tasks = [TaskModel]()
-    var noteID = [NoteModel]()
+    func setUserInterface(){
+        self.view.backgroundColor = backgroundColor
+               self.TableVIew.backgroundColor = backgroundColor
+               self.TableVIew.separatorStyle = UITableViewCell.SeparatorStyle.none
+    }
     
     func LoadTasks(){
         
@@ -44,8 +44,6 @@ class TaskViewController: UIViewController,UITableViewDataSource,UITableViewDele
             let newItems = DataSnapshot.value as! [String:NSDictionary]
             self.Tasks.removeAll()
             for item in newItems{
-//                print("this is a key: \(item.key)")
-//                print("this is a value: \(item.value)")
                 
                 let date = item.value.value(forKey: "date")
                 let id = item.value.value(forKey: "id")
@@ -54,19 +52,25 @@ class TaskViewController: UIViewController,UITableViewDataSource,UITableViewDele
                 let address = item.value.value(forKey: "address")
                 let type = item.value.value(forKey: "type")
                 let key = item.key
-                let notes = [NoteModel]()
-                
-//              NOTES
-//              let noteObject = item.value.value(forKey: "notes") as! NSDictionary
-//                for i in noteObject {
-//                    let note = (i.value) as! NSDictionary
-//                    for x in note{
-//                        print("PRINT\(x) id key:\(x.key)")
-//                        print("PRINT id value:\(x.value)")
-//                    }
-//               }
+                var notes = [NoteModel]()
+
+                if let noteObject = (item.value.value(forKey: "notes")) as! NSDictionary? {
+
+                    notes.removeAll()
+                    for i in noteObject {
+                        let note = (i.value) as! NSDictionary
+                        let noteId = (i.key) as! String
+
+                        let noteContent = note.value(forKey: "noteContent")! as! String
+                        notes.append(NoteModel(id: noteId, noteContent: noteContent))
+                     }
+                }else {
+                        print("EMPTY NOTES")
+                }
+
                 self.Tasks.append(TaskModel(id: id as! Int, date: date as! String, name: name as! String, company: company as! String, address: address as! String, type: type as! String, notes: notes, key: key))
                 }
+            
                 self.TableVIew.reloadData()
         })
     }
@@ -91,32 +95,34 @@ class TaskViewController: UIViewController,UITableViewDataSource,UITableViewDele
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TaskCell") as! TaskCell
-        cell.layer.masksToBounds = true
-        cell.layer.cornerRadius = 12.0
-        cell.layer.borderWidth = 1.0
-        cell.layer.backgroundColor = UIColor.white.cgColor
-        cell.layer.borderColor = TaskBorderColor.cgColor
-        
         let task = self.Tasks[indexPath.section]
-        cell.dateLabel.text = task.date
-        cell.addressLabel.text = task.address
-        cell.nameLabel.text = task.name
-        cell.companyLabel.text = task.company
-        cell.typeLabel.text = task.type
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TaskCell") as! TaskCell
+            cell.layer.masksToBounds = true
+            cell.layer.cornerRadius = 12.0
+            cell.layer.borderWidth = 1.0
+            cell.layer.backgroundColor = UIColor.white.cgColor
+            cell.layer.borderColor = TaskBorderColor.cgColor
+            
+            cell.dateLabel.text = task.date
+            cell.addressLabel.text = task.address
+            cell.nameLabel.text = task.name
+            cell.companyLabel.text = task.company
+            cell.typeLabel.text = task.type
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedRow = Tasks[indexPath.section]
-               performSegue(withIdentifier: "detailsSegue", sender: selectedRow)
+            performSegue(withIdentifier: "detailsSegue", sender: selectedRow)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "detailsSegue" {
             if let indexPath = self.TableVIew.indexPathForSelectedRow {
                 let controller = segue.destination as! TaskDetailsViewController
-                controller.Task = self.Tasks[indexPath.section]
+                    controller.Task = self.Tasks[indexPath.section]
             }
         }
     }
